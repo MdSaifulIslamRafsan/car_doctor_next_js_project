@@ -1,10 +1,31 @@
 import Image from "next/image";
+import { FaCartArrowDown } from "react-icons/fa";
+import { IoSearch } from "react-icons/io5";
 import logo from "../../../public/assets/logo.svg"
 import Link from "next/link";
 const Navbar = () => {
-    const NavLinks = <>
-    <li><Link href={'/'}>Home</Link></li>
-    </>
+    const NavItems = [
+    {
+        path: '/',
+        title: 'Home'
+    },
+    {
+        path: '/about',
+        title: 'About'
+    },
+    {
+        path: '/service',
+        title: 'Service'
+    },
+    {
+        path: '/blog',
+        title: 'Blog'
+    },
+    {
+        path: '/contect',
+        title: 'Contect'
+    },
+    ]
   return (
     <div className="shadow-2xl bg-base-100">
       <div className="navbar w-[95%] md:w-11/12 max-w-[1440px] mx-auto">
@@ -30,18 +51,21 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
-              {NavLinks}
+              {NavItems?.map(item=> <li key={item?.title}><Link href={item?.path}>{item?.title}</Link></li> )}
             </ul>
           </div>
           <Link href={'/'} className="w-14"><Image src={logo} alt='logo'></Image></Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
-           {NavLinks}
+          {NavItems?.map(item=> <li><Link key={item?.title} href={item?.path}>{item?.title}</Link></li> )}
           </ul>
         </div>
-        <div className="navbar-end">
-          <a className="btn">Button</a>
+        <div className="navbar-end space-x-4">
+        <IoSearch className="text-2xl" />
+        <FaCartArrowDown className="text-2xl" />
+
+          <a className="btn btn-outline hover:!text-white btn-primary">Appoinment</a>
         </div>
       </div>
     </div>
