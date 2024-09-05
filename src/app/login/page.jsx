@@ -13,11 +13,8 @@ const SignUpPage = () => {
       height={500}></Image>
                 </div>
                 <form className="border-2 p-10 shadow-xl rounded-lg space-y-5">
-                    <h1 className='text-center text-3xl'>Sign Up</h1>
-                  <div className="">
-                  <label htmlFor="name">Name</label>
-                  <input className='input input-bordered w-full' type="text" name="name" placeholder='name' id="name" />
-                  </div>
+                    <h1 className='text-center text-3xl'>Login</h1>
+                
                    <div className="">
                    <label htmlFor="email">Email</label>
                    <input className='input input-bordered w-full' type="email" name="email" placeholder='example@gmail.com' id="email" />
@@ -34,7 +31,7 @@ const SignUpPage = () => {
                   <button className='btn rounde'> <IoLogoGoogle className="text-2xl "/></button>
                   </div>
 
-                   <p className='text-center'>Already have an account? <Link className="text-primary" href={"/login"}>Login</Link> </p>
+                   <p className='text-center'>Have an account? <Link className="text-primary" href={"/register"}>register</Link> </p>
                 </form>
             </div>
 
