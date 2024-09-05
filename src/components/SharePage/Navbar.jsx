@@ -58,7 +58,7 @@ const Navbar = () => {
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
-          {NavItems?.map(item=> <li><Link key={item?.title} href={item?.path}>{item?.title}</Link></li> )}
+          {NavItems?.map(item=> <li key={item?.title}><Link  href={item?.path}>{item?.title}</Link></li> )}
           </ul>
         </div>
         <div className="navbar-end space-x-4">
@@ -66,6 +66,7 @@ const Navbar = () => {
         <FaCartArrowDown className="text-2xl" />
 
           <a className="btn btn-outline hover:!text-white btn-primary">Appoinment</a>
+          <Link href="/login" className="btn btn-primary text-white">Login</Link>
         </div>
       </div>
     </div>
