@@ -4,7 +4,8 @@ import React from 'react';
 import { FaFacebook, FaGithub} from 'react-icons/fa';
 import { IoLogoGoogle } from 'react-icons/io5';
 
-const SignUpPage = () => {
+const SignInPage = () => {
+
     return (
         <div>
             <div className="grid grid-cols-2 gap-12">
@@ -23,7 +24,7 @@ const SignUpPage = () => {
                    <label htmlFor="password">Password</label>
                    <input className='input input-bordered w-full' type="password" name="password" placeholder='*******' id="password" />
                    </div>
-                   <button className='btn btn-primary text-white w-full'>Sign Up</button>
+                   <button type='submit' className='btn btn-primary text-white w-full'>Sign Up</button>
                    <p className="text-center">Or Sign Up with</p>
                   <div className="flex gap-5 justify-center">
                  <button className='btn rounde'> <FaFacebook className="text-2xl"/></button>
@@ -39,4 +40,4 @@ const SignUpPage = () => {
     );
 };
 
-export default SignUpPage;
+export default SignInPage;
