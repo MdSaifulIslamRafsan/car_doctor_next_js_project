@@ -4,7 +4,7 @@ import Link from 'next/link';
 import React from 'react';
 import { FaFacebook, FaGithub} from 'react-icons/fa';
 import { IoLogoGoogle } from 'react-icons/io5';
-
+import axios from 'axios';
 const SignUpPage = () => {
     const handleSignUp = async(event) =>{
         event.preventDefault()
@@ -13,7 +13,13 @@ const SignUpPage = () => {
             email: event.target.email.value,
             password: event.target.password.value,
         }
-        console.log(newUser);
+        axios.post('http://localhost:3000/register/api' , JSON.stringify(newUser))
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        })
     }    
    
     
