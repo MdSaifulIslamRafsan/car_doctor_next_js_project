@@ -1,9 +1,13 @@
+"use client"
 import Image from "next/image";
 import { FaCartArrowDown } from "react-icons/fa";
 import { IoSearch } from "react-icons/io5";
 import logo from "../../../public/assets/logo.svg"
 import Link from "next/link";
+import { signOut, useSession } from "next-auth/react";
 const Navbar = () => {
+
+  const sessoin = useSession();
     const NavItems = [
     {
         path: '/',
@@ -66,7 +70,11 @@ const Navbar = () => {
         <FaCartArrowDown className="text-2xl" />
 
           <a className="btn btn-outline hover:!text-white btn-primary">Appoinment</a>
-          <Link href="/login" className="btn btn-primary text-white">Login</Link>
+          {
+            !sessoin?.data ?
+            <Link href="/login" className="btn btn-primary text-white">Login</Link> :
+            <button onClick={()=> signOut()} className="btn btn-primary text-white">Logout</button>
+          }
         </div>
       </div>
     </div>

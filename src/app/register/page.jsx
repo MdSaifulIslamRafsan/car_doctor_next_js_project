@@ -5,7 +5,9 @@ import React from 'react';
 import { FaFacebook, FaGithub} from 'react-icons/fa';
 import { IoLogoGoogle } from 'react-icons/io5';
 import axios from 'axios';
+import { useRouter } from 'next/navigation';
 const SignUpPage = () => {
+    const route = useRouter()
     const handleSignUp = async(event) =>{
         event.preventDefault()
         const newUser = {
@@ -16,6 +18,9 @@ const SignUpPage = () => {
         axios.post('http://localhost:3000/register/api' , JSON.stringify(newUser))
         .then((response) => {
           console.log(response);
+          if(response?.data){
+            route.push('/login')
+          }
         })
         .catch((error) => {
           console.log(error);
