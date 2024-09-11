@@ -1,9 +1,10 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 import { FaArrowRight } from "react-icons/fa";
 const ServiceCard = ({service , index}) => {
     
-    const {img , title , price} = service;
+    const { _id ,img , title , price} = service;
     
     return (
         <div className="card bg-base-100 w-96 shadow-xl">
@@ -17,7 +18,7 @@ const ServiceCard = ({service , index}) => {
     <h2 className="card-title">{title}</h2>
     <div className="flex items-center justify-between">
     <p className="text-red-600 font-bold">price: ${price}</p>
-      <button className="text-red-600"><FaArrowRight /></button>
+      <Link href={`/services/${_id}`} className="text-red-600"><FaArrowRight /></Link>
     </div>
   </div>
 </div>

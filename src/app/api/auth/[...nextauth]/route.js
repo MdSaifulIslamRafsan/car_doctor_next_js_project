@@ -1,6 +1,9 @@
 import NextAuth from "next-auth/next"
 import CredentialsProvider from "next-auth/providers/credentials"
 import {connectDb} from "@/lib/connectedDb"
+import GitHubProvider from "next-auth/providers/github";
+import FacebookProvider from "next-auth/providers/facebook";
+import GoogleProvider from "next-auth/providers/google";
 const bcrypt = require('bcrypt');
 
 const handler = NextAuth({
@@ -14,6 +17,7 @@ providers: [
             email: {},
             password: {}
         },
+        
         async authorize(credentials){
            const {email, password} = credentials;
            if(!email || !password){
@@ -32,7 +36,20 @@ providers: [
           return currentUser
            }
         
-    })
+    }),
+    GoogleProvider({
+        clientId: process.env.GOOGLE_CLIENT_ID,
+        clientSecret: process.env.GOOGLE_CLIENT_SECRET
+      }),
+      FacebookProvider({
+        clientId: process.env.FACEBOOK_CLIENT_ID,
+        clientSecret: process.env.FACEBOOK_CLIENT_SECRET
+      }),
+      GitHubProvider({
+        clientId: process.env.GITHUB_ID,
+        clientSecret: process.env.GITHUB_SECRET
+      })
+
 ],
 pages: {
     signIn: '/login'
