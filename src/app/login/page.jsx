@@ -29,7 +29,7 @@ const SignInPage = () => {
             <div className="grid grid-cols-2 gap-12">
                 <div className="">
                     <Image src="/assets/images/login/login.svg" alt='signUp img'  width={500}
-      height={500}></Image>
+                    height={500}></Image>
                 </div>
                 <form onSubmit={handleSignIn} className="border-2 p-10 shadow-xl rounded-lg space-y-5">
                     <h1 className='text-center text-3xl'>Login</h1>
