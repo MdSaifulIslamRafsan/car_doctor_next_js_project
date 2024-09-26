@@ -1,5 +1,5 @@
 import {connectDb} from "@/lib/connectedDb"
-export const GET = async () =>{
+export const GET = async (req) =>{
     const db = await connectDb();
     const servicesCollection = db.collection('services');
     try {
